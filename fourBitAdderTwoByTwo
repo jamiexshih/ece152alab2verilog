@@ -1,0 +1,26 @@
+module fourBitAdderTwoByTwo(a, b, cin, s, cout);
+    input wire [3:0] a, b;
+    input wire cin;
+    output wire [3:0] s;
+    output wire cout;
+
+    wire c2;
+
+    // Lower 2 bits
+    twoBitAdder TA0(
+        .a(a[1:0]),
+        .b(b[1:0]),
+        .cin(cin),
+        .s(s[1:0]),
+        .cout(c2)
+    );
+
+    // Upper 2 bits
+    twoBitAdder TA1(
+        .a(a[3:2]),
+        .b(b[3:2]),
+        .cin(c2),
+        .s(s[3:2]),
+        .cout(cout)
+    );
+endmodule
