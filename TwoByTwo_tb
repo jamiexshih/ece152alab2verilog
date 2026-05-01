@@ -1,0 +1,47 @@
+module TwoByTwo_tb;
+    reg [3:0] A, B;
+    reg cin;
+    wire [3:0] S;
+    wire cout;
+
+    fourBitAdderTwoByTwo uut (
+        .a(A),
+        .b(B),
+        .cin(cin),
+        .s(S),
+        .cout(cout)
+    );
+
+    initial begin
+        $monitor("A=%b B=%b cin=%b | S=%b cout=%b", A, B, cin, S, cout);
+
+        // minimum
+        A = 4'b0000; B = 4'b0000; cin = 0;
+        #10;
+
+        // addition with carry
+        A = 4'b0010; B = 4'b0011; cin = 1;
+        #10;
+
+        // addition with no carry
+        A = 4'b0010; B = 4'b0011; cin = 0;
+        #10;
+
+        // carry ripple case
+        A = 4'b0111; B = 4'b0001; cin = 0;
+        #10;
+
+        // max with carry
+        A = 4'b1111; B = 4'b0000; cin = 1;
+        #10;
+
+        // max + max
+        A = 4'b1111; B = 4'b1111; cin = 0;
+        #10;
+
+        A = 4'b1111; B = 4'b1111; cin = 1;
+        #10;
+
+        $finish;
+    end
+endmodule
