@@ -10,7 +10,7 @@ module addertb;
 		.b(B),
 		.cin(cin),
 		.s(S),
-		.cout(cout),
+		.cout(cout)
 	);
 	initial begin
 		//minimum 
