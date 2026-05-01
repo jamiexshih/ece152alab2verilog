@@ -13,7 +13,7 @@ module fourBitAdderFourByOne(a, b, cin, s, cout);
 	fullAdder FA0(
 		.a(a[0]),
 		.b(b[0]),
-		.cin(cin[0]),
+		.cin(cin),
 		.s(s[0]),
 		.cout(c0)
 );
